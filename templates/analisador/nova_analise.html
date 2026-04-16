@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova análise | AI Recruiter</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <main class="page">
+        <section class="form-card">
+            <a class="back-link" href="{% url 'home' %}">Voltar para o início</a>
+
+            <p class="tag">Nova análise</p>
+            <h1>Enviar currículo</h1>
+            <p class="subtitle">
+                Preencha o nome da vaga e selecione o arquivo PDF do currículo.
+            </p>
+
+            <form method="post" enctype="multipart/form-data" class="upload-form">
+                {% csrf_token %}
+
+                {{ form.non_field_errors }}
+
+                <div class="field-group">
+                    <label for="{{ form.nome_vaga.id_for_label }}">
+                        {{ form.nome_vaga.label }}
+                    </label>
+                    {{ form.nome_vaga }}
+                    {{ form.nome_vaga.errors }}
+                </div>
+
+                <div class="field-group">
+                    <label for="{{ form.curriculo.id_for_label }}">
+                        {{ form.curriculo.label }}
+                    </label>
+                    {{ form.curriculo }}
+                    {{ form.curriculo.errors }}
+                </div>
+
+                <button class="button" type="submit">
+                    Analisar currículo
+                </button>
+            </form>
+        </section>
+
+        {% if resultado %}
+            <section class="result-card">
+                <p class="tag">Resultado</p>
+                <h2>{{ resultado.vaga }}</h2>
+
+                <p>
+                    <strong>Arquivo:</strong>
+                    {{ resultado.arquivo }}
+                </p>
+
+                <p>
+                    <strong>Análise:</strong>
+                    {{ resultado.analise }}
+                </p>
+            </section>
+        {% endif %}
+    </main>
+</body>
+</html>

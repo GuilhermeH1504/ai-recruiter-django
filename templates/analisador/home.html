@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Recruiter</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <main class="page">
+        <section class="hero-card">
+            <p class="tag">Analisador de currículos</p>
+            <h1>AI Recruiter</h1>
+            <p class="subtitle">
+                Envie um currículo em PDF e registre uma análise inicial para a vaga escolhida.
+            </p>
+
+            <a class="button" href="{% url 'nova_analise' %}">
+                Fazer nova análise
+            </a>
+        </section>
+    </main>
+</body>
+</html>
