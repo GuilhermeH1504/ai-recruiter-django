@@ -10,7 +10,7 @@ A ferramenta permite que profissionais de RH façam o upload do currículo de um
 
 - **Python** + **Django** — backend e estrutura web
 - **Groq API** — processamento de linguagem natural com IA
-- **PyPDF** (ou similar) — leitura e extração de texto de PDFs
+- **PyPDF**  — leitura e extração de texto de PDFs
 
 ## ⚙️ Funcionalidades
 
